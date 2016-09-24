@@ -11,7 +11,7 @@ box: python:2.7
 # This is the build pipeline. Pipelines are the core of wercker
 # Read more about pipelines on our dev center
 # http://devcenter.wercker.com/docs/pipelines/index.html
-build:
+initial-build:
   # The steps that will be executed on build
   # Steps make up the actions in your pipeline
   # Read more about steps on our dev center:
@@ -37,19 +37,21 @@ build:
     # - pip-install:
     #     clean_wheel_dir: true
 
+
+build:
+  steps:
     # A custom script step, name value is used in the UI
     # and the code value contains the command that get executed
     - script:
-        name: echo python information
+        name: build static site
         code: |
-          echo "python version $(python --version) running"
-          echo "pip version $(pip --version) running"
+          lektor build --output-path public
 
 deploy:
     steps:
         - s3sync:
-            key-id: $KEY
-            key-secret: $SECRET
-            bucket-url: $BUCKET
-            source-dir: $SOURCE
-            opts: --acl-public
+            key-id: $AWS_ACCESS_KEY_ID
+            key-secret: $AWS_SECRET_ACCESS_KEY
+            bucket-url: $AWS_BUCKET_URL
+            delete-removed: true
+            opts: --acl-public --add-header=Cache-Control:max-age=2592000
