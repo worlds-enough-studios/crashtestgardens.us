@@ -1,0 +1,17 @@
+<script type="text/javascript">
+    // Add a script element as a child of the body
+    function dlJS() {
+        var element = document.createElement("script");
+        element.src = "{{ '/scripts/deferred.js'|asseturl }}";
+        document.body.appendChild(element);
+    }
+
+    // Check for browser support of event handling capability
+    if (window.addEventListener) {
+        window.addEventListener("load", dlJS, false);
+    } else if (window.attachEvent) {
+        window.attachEvent("onload", dlJS);
+    } else {
+        window.onload = dlJS;
+    }
+</script>

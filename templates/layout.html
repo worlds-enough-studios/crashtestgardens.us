@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en-us">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">  
+  <title>{% block title %}Welcome{% endblock %} — The Crash Test Gardener</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link rel="stylesheet" href="{{ '/styles/style.css'|asseturl }}">
+  <style type="text/css">{% block page_style %}{% endblock %}</style>
+  <link rel="alternate" type="application/atom+xml"
+                        title="The Crash Test Gardener"
+                        href="{{ 'blog@atom/blog'|url }}" />
+  
+  <!-- http://realfavicongenerator.net/ -->
+  <link rel="apple-touch-icon" sizes="180x180" href="{{ '/apple-touch-icon.png'|asseturl }}">
+  <link rel="icon" type="image/png" href="{{ '/favicon-32x32.png'|asseturl }}" sizes="32x32">
+  <link rel="icon" type="image/png" href="{{ '/favicon-16x16.png'|asseturl }}" sizes="16x16">
+  <link rel="manifest" href="{{ '/manifest.json'|asseturl }}">
+  <link rel="mask-icon" href="{{ '/safari-pinned-tab.svg'|asseturl }}" color="#5bbad5">
+  <meta name="apple-mobile-web-app-title" content="Crash Gardens">
+  <meta name="application-name" content="Crash Gardens">
+  <meta name="theme-color" content="#ffffff">
+
+  {% include 'head-tags.html' %}
+</head>
+<body>
+  <header>
+    <h1><a href="/">Crash Test Gardens</a><br />
+    <small>I kill plants so you don't have to.</small>
+
+    </h1>
+    <nav>
+      <ul class="nav navbar-nav">
+        <li><a{% if this._path == '/' %} class="active"{% endif
+          %} href="{{ '/'|url }}">Welcome</a></li>
+        {% for href, title in [
+          ['/blog', 'Blog'],
+          ['/projects', 'Projects'],
+          ['/about', 'About']
+        ] %}
+          <li><a{% if this.is_child_of(href) %} class="active"{% endif
+            %} href="{{ href|url }}">{{ title }}</a></li>
+        {% endfor %}
+      </ul>
+    </nav>
+  </header>
+  <main>
+    <!--[if lt IE 8]>
+      <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
+    <![endif]-->
+
+    {% block body %}{% endblock %}
+  </main>
+  <footer>
+    <div class="flow-block text-block">
+      <p>Copyright &copy; 2016 by Worlds Enough Studios. All rights reserved.</p>
+      <p>Header image by <a href="https://unsplash.com/@cjoudrey">Christian Joudrey</a></p>
+    </div>
+  </footer>
+  {% if this.enable_subscribe_form %}
+  <div id="popup-background"></div>
+  <div id="popup" class="popup">
+    <div id="popup-close">X</div>
+    <div class="popup-content">
+      {% include 'signup-form.html' %}  
+    </div>  
+  </div>
+  {% endif %}
+
+  {% include 'foot-tags.html' %}
+  </script>
+</body>
+</html>

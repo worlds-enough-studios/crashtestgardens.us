@@ -1,0 +1,18 @@
+_model: page
+---
+title: Subscription confirmed!
+---
+body:
+
+#### text ####
+text:
+
+Your subscription to the Crash Test Gardens Newsletter is now active! You can look forward to lots of hard-knock lessons from over here at the Crash Test Gardens, delivered regularly. But not *too* regularly!
+
+While you're waiting for the first episode, [why not surf on over to see what projects I've got going on right now?](/projects/)
+----
+class: 
+---
+enable_comments: no
+---
+enable_subscribe_form: no

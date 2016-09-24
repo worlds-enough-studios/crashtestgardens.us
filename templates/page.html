@@ -1,0 +1,23 @@
+{% extends "layout.html" %}
+{% block title %}{{ this.title }}{% endblock %}
+{% block body %}
+  <div class="flow-block">
+    <h2>{{ this.title }}</h2>
+  </div>
+  {{ this.body }}
+  {% if this.enable_subscribe_form and this.enable_comments %}
+  <div class="flow-block">
+    <p><a href="#comments">Comments</a></p>
+  </div>
+  {% endif %}
+  {% if this.enable_subscribe_form %}
+  <hr />
+  <div id="mc_embed_signup" class="flow-block signup-form">
+    {% include 'signup-form.html' %}
+  </div>
+  {% endif %}
+  {% if this.enable_comments %}
+  <hr />
+  <div id="comments" class="flow-block comments">{{ render_disqus_comments() }}</div>
+  {% endif %}
+{% endblock %}

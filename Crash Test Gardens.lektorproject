@@ -1,0 +1,11 @@
+[project]
+name = Crash Test Gardens
+url = https://crashtestgardens.us
+url_style = absolute
+
+[packages]
+lektor-markdown-header-anchors = 0.1
+lektor-markdown-admonition = 0.1
+lektor-atom = 0.2
+lektor-disqus-comments = 0.2
+lektor-markdown-excerpt = 0.1

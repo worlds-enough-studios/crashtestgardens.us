@@ -1,0 +1,11 @@
+{% set img = record.attachments.images.get(this.attachment) %}
+{% if img %}
+  {% set thumb = img.thumbnail(700) %}
+  <div class="flow-block image-block{% for class in this.class.strip().split() %} image-block-{{ class }}{% endfor %}">
+    <img 
+        src="{{ thumb|url }}" alt="{{ this.alt }}" 
+        width="{{ thumb.width }}"
+        height="{{ thumb.height }}"
+        />
+  </div>
+{% endif %}

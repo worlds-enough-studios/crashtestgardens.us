@@ -1,0 +1,24 @@
+_model: page
+---
+title: You're almost finished!
+---
+_discoverable: no
+---
+_hidden: no
+---
+body:
+
+#### text ####
+text:
+
+Before I start sending you my latest hard-knock gardening lessons, I just need to confirm your email address. I want to make sure this gets to *you*, and not someone else accidentally!
+
+To complete your subscription, **please click the link in the email I just sent you.** I'll wait up, don't worry.
+----
+class: 
+---
+enable_subscribe_form: no
+---
+enable_comments: no
+---
+_slug: thank-you-for-subscribing

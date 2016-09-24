@@ -1,0 +1,71 @@
+{% macro render_blog_post(post, from_index=false, add_divider=false) %}
+  <div class="blog-post">
+    <div class="flow-block">
+    {% if not from_index %}
+      {% set siblings = post.get_siblings() %}
+
+      {% if siblings.prev_page %}
+        <a href="{{ siblings.prev_page|url }}">previous</a>
+      {% endif %}
+
+      {% if siblings.next_page %}
+        <a href="{{ siblings.next_page|url }}">next</a>
+      {% endif %}
+    {% endif %}
+    {% if from_index %}
+      <h2><a href="{{ post|url }}">{{ post.title }}</a></h2>
+    {% else %}
+      <h2>{{ post.title }}</h2>
+    {% endif %}
+    <p class="meta">
+      written by
+      {% if post.twitter_handle %}
+        <a href="https://twitter.com/{{ post.twitter_handle
+          }}">{{ post.author or post.twitter_handle }}</a>
+      {% else %}
+        {{ post.author }}
+      {% endif %}
+      on {{ post.pub_date }}
+    </p>
+    </div>
+    {% if from_index %}
+      <div class="flow-block">
+      {% if post.summary %}
+      {{ post.summary }}
+      {% else %}
+      {% for blk in post.body.blocks %}
+        {% if loop.first %}
+          {% if blk._flowblock == 'image' %}
+          {{ blk }}
+          {% else %}
+          {{ blk.text|excerpt }}
+          {% endif %}
+        {% endif %}
+      {% endfor %}
+      {% endif %}
+      </div>
+    {% else %}
+      {{ post.body }}
+      {% if post.enable_subscribe_form and post.enable_comments %}
+      <div class="flow-block">
+        <p><a href="#comments">Comments</a></p>
+      </div>
+      {% endif %}
+    {% endif %}
+  </div>
+  {% if not from_index %}
+    {% if post.enable_subscribe_form %}
+    <hr />
+    <div id="mc_embed_signup" class="flow-block signup-form">
+      {% include 'signup-form.html' %}
+    </div>
+    {% endif %}
+    {% if post.enable_comments %}
+      <hr />
+      <div id="comments" class="flow-block comments">{{ render_disqus_comments() }}</div>
+    {% endif %}
+  {% endif %}
+  {% if add_divider %}
+  <hr />
+  {% endif %}
+{% endmacro %}
