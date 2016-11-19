@@ -30,7 +30,7 @@ build-and-deploy:
     - script:
         name: build static site
         code: |
-          lektor build --output-path public
+          paver build
 
     - script:
         name: deploy static site
