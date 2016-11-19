@@ -18,7 +18,7 @@ build-and-deploy:
   # http://devcenter.wercker.com/docs/steps/index.html
   steps:
     - install-packages:
-        packages: python-dev libssl-dev libffi-dev
+        packages: python-dev libssl-dev libffi-dev optipng jpegoptim libjpeg8-dev zlib1g-dev gifsicle
 
     - wercker/virtualenv@1.0.0:
         name: setup virtual environment

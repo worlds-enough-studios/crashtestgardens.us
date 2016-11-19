@@ -6,3 +6,4 @@ lektor-markdown-admonition==0.1
 lektor-atom==0.2
 lektor-disqus-comments==0.2
 lektor-markdown-excerpt==0.1
+lektor-minification==1.1.5
