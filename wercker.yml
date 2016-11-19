@@ -31,7 +31,8 @@ build:
     #     python_location: /usr/bin/python3.2
 
     # A step that executes `pip install` command.
-    - pip-install
+    - pip-install:
+        requirements_file: requirements.txt
 
     # # This pip-install clears the local wheel cache
     # - pip-install:
@@ -47,7 +48,7 @@ build:
 deploy:
   steps:
     - script:
-        name: build static site
+        name: deploy static site
         code: |
           mkdir ~/.aws          
           cat << EOF > ~/.aws/credentials
@@ -55,10 +56,3 @@ deploy:
           aws_secret_access_key = $AWS_SECRET_ACCESS_KEY
           EOF
           paver deploy
-
-    - s3sync:
-        key-id: $AWS_ACCESS_KEY_ID
-        key-secret: $AWS_SECRET_ACCESS_KEY
-        bucket-url: $AWS_BUCKET_URL
-        delete-removed: true
-        opts: --acl-public --add-header=Cache-Control:max-age=2592000
