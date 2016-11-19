@@ -21,7 +21,7 @@ build:
         packages: python-dev libssl-dev libffi-dev
 
     # A step that sets up the python virtual environment
-    - virtualenv:
+    - wercker/virtualenv@1.0.0:
         name: setup virtual environment
         install_wheel: true # Enable wheel to speed up builds (experimental)
 
@@ -31,7 +31,7 @@ build:
     #     python_location: /usr/bin/python3.2
 
     # A step that executes `pip install` command.
-    - pip-install:
+    - wercker/pip-install@0.0.6:
         requirements_file: requirements.txt
 
     # # This pip-install clears the local wheel cache
