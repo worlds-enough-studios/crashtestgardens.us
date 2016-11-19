@@ -7,8 +7,12 @@ def clean():
 
 
 @task
-def deploy():
+def build():
     sh('lektor build')
+
+
+@task
+def deploy():
     results = sh(
         (
             'aws --profile worlds'

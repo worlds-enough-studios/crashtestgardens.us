@@ -45,10 +45,20 @@ build:
           lektor build --output-path public
 
 deploy:
-    steps:
-        - s3sync:
-            key-id: $AWS_ACCESS_KEY_ID
-            key-secret: $AWS_SECRET_ACCESS_KEY
-            bucket-url: $AWS_BUCKET_URL
-            delete-removed: true
-            opts: --acl-public --add-header=Cache-Control:max-age=2592000
+  steps:
+    - script:
+        name: build static site
+        code: |
+          mkdir ~/.aws          
+          cat << EOF > ~/.aws/credentials
+          aws_access_key_id = $AWS_ACCESS_KEY_ID
+          aws_secret_access_key = $AWS_SECRET_ACCESS_KEY
+          EOF
+          paver deploy
+
+    - s3sync:
+        key-id: $AWS_ACCESS_KEY_ID
+        key-secret: $AWS_SECRET_ACCESS_KEY
+        bucket-url: $AWS_BUCKET_URL
+        delete-removed: true
+        opts: --acl-public --add-header=Cache-Control:max-age=2592000
