@@ -1,35 +1,47 @@
 {% macro render_blog_post(post, from_index=false, add_divider=false) %}
-  <div class="blog-post">
+  <article class="blog-post" itemscope="" itemtype="http://schema.org/BlogPosting">
     <div class="flow-block">
-    {% if not from_index %}
-      {% set siblings = post.get_siblings() %}
+      {% if not from_index %}
+        {% set siblings = post.get_siblings() %}
 
-      {% if siblings.prev_page %}
-        <a href="{{ siblings.prev_page|url }}">previous</a>
-      {% endif %}
+        {% if siblings.prev_page %}
+          <a href="{{ siblings.prev_page|url }}">previous</a>
+        {% endif %}
 
-      {% if siblings.next_page %}
-        <a href="{{ siblings.next_page|url }}">next</a>
+        {% if siblings.next_page %}
+          <a href="{{ siblings.next_page|url }}">next</a>
+        {% endif %}
       {% endif %}
-    {% endif %}
-    {% if from_index %}
-      <h2><a href="{{ post|url }}">{{ post.title }}</a></h2>
-    {% else %}
-      <h2>{{ post.title }}</h2>
-    {% endif %}
-    <p class="meta">
-      written by
-      {% if post.twitter_handle %}
-        <a href="https://twitter.com/{{ post.twitter_handle
-          }}">{{ post.author or post.twitter_handle }}</a>
-      {% else %}
-        {{ post.author }}
+      <h2 itemprop="name headline">
+        {%- if from_index -%}
+        <a href="{{ post|url }}">{{ post.title }}</a>
+        {%- else -%}
+        {{ post.title }}
+        {%- endif -%}
+      </h2>
+      {% if post.summary %}
+      <div class="summary" itemprop="description">
+      {{ post.summary }}
+      </div>
       {% endif %}
-      on {{ post.pub_date }}
-    </p>
+      <p class="meta">
+        Written by
+        <span itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+        <span itemprop="name">
+        {%- if post.twitter_handle -%}
+          <a href="https://twitter.com/{{ post.twitter_handle }}"
+             itemprop="url" rel="author">
+            {{ post.author or post.twitter_handle }}
+          </a>
+        {%- else -%}
+          {{ post.author }}
+        {%- endif -%}
+        </span></span>
+        on <time itemprop="datePublished">{{ post.pub_date }}</time>
+      </p>
     </div>
     {% if from_index %}
-      <div class="flow-block">
+      <div class="flow-block" itemprop="description">
       {% if post.summary %}
       {{ post.summary }}
       {% else %}
@@ -45,14 +57,15 @@
       {% endif %}
       </div>
     {% else %}
+      <div class="blog-post-content" itemprop="articleBody">
       {{ post.body }}
+      </div>
       {% if post.enable_subscribe_form and post.enable_comments %}
       <div class="flow-block">
         <p><a href="#comments">Comments</a></p>
       </div>
       {% endif %}
     {% endif %}
-  </div>
   {% if not from_index %}
     {% if post.enable_subscribe_form %}
     <hr />
@@ -68,4 +81,5 @@
   {% if add_divider %}
   <hr />
   {% endif %}
+  </article>
 {% endmacro %}

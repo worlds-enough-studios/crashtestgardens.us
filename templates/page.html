@@ -1,10 +1,13 @@
 {% extends "layout.html" %}
 {% block title %}{{ this.title }}{% endblock %}
 {% block body %}
+  <article class="page" itemscope="" itemtype="http://schema.org/Article">
   <div class="flow-block">
-    <h2>{{ this.title }}</h2>
+    <h2 itemprop="name headline">{{ this.title }}</h2>
   </div>
-  {{ this.body }}
+  <div class="page-content" itemprop="articleBody">
+    {{ this.body }}
+  </div>
   {% if this.enable_subscribe_form and this.enable_comments %}
   <div class="flow-block">
     <p><a href="#comments">Comments</a></p>
