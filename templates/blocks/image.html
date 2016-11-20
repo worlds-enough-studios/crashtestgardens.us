@@ -2,12 +2,14 @@
 {% if img %}
   {% set thumb = img.thumbnail(700) %}
   <div class="flow-block image-block{% for class in this.class.strip().split() %} image-block-{{ class }}{% endfor %}">
-    <img 
-        itemprop="image"
-        src="{{ thumb|url }}"
-        alt="{{ this.alt }}" 
-        width="{{ thumb.width }}"
-        height="{{ thumb.height }}"
-        />
+    <div class="container">
+      <img 
+          itemprop="image"
+          src="{{ thumb|url }}"
+          alt="{{ this.alt }}" 
+          width="{{ thumb.width }}"
+          height="{{ thumb.height }}"
+          />
+    </div>
   </div>
 {% endif %}
