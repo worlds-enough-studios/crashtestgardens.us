@@ -640,6 +640,9 @@ label > .label-body {
   margin-left: .5rem;
   font-weight: normal;
 }
+input + label {
+  margin-top: .5rem;
+}
 
 
 /* Lists
@@ -714,6 +717,7 @@ td:last-child {
 
 main {
   background-color: white;
+  padding-bottom: 0;
 }
 
 header, footer {
@@ -794,6 +798,7 @@ footer {
 .flow-block {
   position: relative;
   box-sizing: border-box;
+  margin-bottom: 0;
 }
 .container {
   margin: 0; 

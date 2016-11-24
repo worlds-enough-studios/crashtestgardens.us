@@ -61,9 +61,7 @@
         </div>
       </div>
     {% else %}
-      <div class="blog-post-content" itemprop="articleBody">
       {{ post.body }}
-      </div>
       {% if post.enable_subscribe_form and post.enable_comments %}
       <div class="flow-block">
         <div class="container">
@@ -73,13 +71,6 @@
       {% endif %}
     {% endif %}
   {% if not from_index %}
-    {% if post.enable_subscribe_form %}
-    <div id="mc_embed_signup" class="flow-block signup-form bg-de-york">
-      <div class="container">
-        {% include 'signup-form.html' %}
-      </div>
-    </div>
-    {% endif %}
     {% if post.enable_comments %}
       <div id="comments" class="flow-block comments">
         <div class="container">
