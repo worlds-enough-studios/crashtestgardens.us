@@ -478,6 +478,14 @@ h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
   text-decoration: underline;
 }
 
+p {
+  margin: 0;
+}
+
+p + * {
+  margin-top: 1em;
+}
+
 blockquote {
    border-left: 2px solid #407F7F;
    font-size: 1.2em;
@@ -713,7 +721,9 @@ header, footer {
 }
 
 header {
-  background-image: url("/images/sprouts-green-splash-triangles-compressed.jpg?v=1");
+  background: url("/images/sprouts-green-splash-triangles-compressed.jpg?v=1") no-repeat center;
+  background-image: url("/images/sprouts-green-splash-triangles.svg?v=1");
+  background-size: contain;
 
   background-position: center top;
   background-repeat: no-repeat;
@@ -904,6 +914,10 @@ there.
 
 .u-round {
   border-radius: 50%;
+}
+.u-border {
+  border: 8px double black;
+  background-color: white;
 }
 
 
