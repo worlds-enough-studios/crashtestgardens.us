@@ -1,6 +1,7 @@
 {% extends "layout.html" %}
 {% from "macros/blog.html" import render_blog_post %}
 {% block title %}{{ this.title }}{% endblock %}
+{% block meta_desc %}{{ this.summary.html.striptags() }}{% endblock %}
 {% block body %}
   {{ render_blog_post(this) }}
 {% endblock %}

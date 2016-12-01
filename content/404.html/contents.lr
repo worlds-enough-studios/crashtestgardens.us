@@ -16,3 +16,5 @@ _hidden: no
 enable_comments: no
 ---
 _discoverable: no
+---
+published: yes

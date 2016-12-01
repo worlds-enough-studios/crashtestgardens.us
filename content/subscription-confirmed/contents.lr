@@ -16,3 +16,9 @@ class:
 enable_comments: no
 ---
 enable_subscribe_form: no
+---
+_discoverable: no
+---
+_hidden: no
+---
+published: yes

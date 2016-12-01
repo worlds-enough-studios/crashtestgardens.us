@@ -22,3 +22,5 @@ enable_subscribe_form: no
 enable_comments: no
 ---
 _slug: thank-you-for-subscribing
+---
+published: yes

@@ -711,13 +711,21 @@ td:last-child {
 /* Custom Layout
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
 
+* {
+  margin: 0;
+}
+
 * + * {
-  margin-bottom: 1em;
+  margin-top: 1em;
 }
 
 main {
   background-color: white;
   padding-bottom: 0;
+}
+
+body, br, li, dt, dd, th, td, option {
+  margin-top: 0;
 }
 
 header, footer {
@@ -742,7 +750,6 @@ header h1 {
   font-weight: 300;
   line-height: 0.7;
   background-color: rgba(0,0,0,0.5);
-  margin-bottom: 2rem;
   border-radius: 2rem;
   padding: 0.7rem;
 }
@@ -787,7 +794,6 @@ nav li {
 
 footer {
   margin: 0 auto;
-  padding: 1em;
   color: #92B52F;
 }
 
@@ -798,7 +804,15 @@ footer {
 .flow-block {
   position: relative;
   box-sizing: border-box;
-  margin-bottom: 0;
+  margin-top: 0;
+  padding-top: 2em;
+  padding-bottom: 2em;
+}
+.flow-block.heading-block {
+  padding-bottom: 0;
+}
+.heading-block + .flow-block {
+  padding-top: 0;
 }
 .container {
   margin: 0; 

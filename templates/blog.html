@@ -4,7 +4,9 @@
 {% block title %}{{ this.title|default("Blog", true) }}{% endblock %}
 {% block body %}
   {% for child in this.pagination.items %}
+    {% if child.published and child._discoverable %}
     {{ render_blog_post(child, from_index=true, add_divider=not loop.last) }}
+    {% endif %}
   {% endfor %}
 
   {% if this.pagination.pages > 1 %}

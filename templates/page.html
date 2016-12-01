@@ -1,22 +1,16 @@
 {% extends "layout.html" %}
 {% block title %}{{ this.title }}{% endblock %}
+{% block meta_desc %}{{ this.summary.html.striptags() }}{% endblock %}
 {% block body %}
   <article class="page" itemscope="" itemtype="http://schema.org/Article">
-  <div class="flow-block">
+  <div class="flow-block heading-block">
     <div class="container">
-      <h2 itemprop="name headline">{{ this.title }}</h2>
+      <h1 itemprop="name headline">{{ this.title }}</h1>
     </div>
   </div>
-  {% if this.enable_subscribe_form and this.enable_comments %}
-  <div class="flow-block">
-    <div class="container">
-      <p><a href="#comments">Comments</a></p>
-    </div>
-  </div>
-  {% endif %}
   {{ this.body | typogrify }}
   {% if this.enable_comments %}
-  <div id="comments" class="flow-block comments">
+  <div id="comments" class="flow-block comments-block">
     <div class="container">
     {{ render_disqus_comments() }}
     </div>

@@ -10,3 +10,5 @@ class:
  
 ---
 enable_comments: no
+---
+published: no
