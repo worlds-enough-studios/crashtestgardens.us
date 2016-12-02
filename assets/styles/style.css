@@ -467,7 +467,6 @@ body {
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
 h1, h2, h3, h4, h5, h6, b, strong, label {
   font-family: 'Copse', Frutiger, "Frutiger Linotype", Univers, Calibri, "Gill Sans", "Gill Sans MT", "Myriad Pro", Myriad, "DejaVu Sans Condensed", "Liberation Sans", "Nimbus Sans L", Tahoma, Geneva, "Helvetica Neue", Helvetica, Arial, sans-serif;
-  margin: 0;
 }
 h1, h2, h3, h4, h5, h6 {
   font-weight: 400;
@@ -476,14 +475,6 @@ h1, h2, h3, h4, h5, h6 {
 
 h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
   text-decoration: underline;
-}
-
-p {
-  margin: 0;
-}
-
-p + * {
-  margin-top: 1em;
 }
 
 blockquote {
@@ -724,7 +715,7 @@ main {
   padding-bottom: 0;
 }
 
-body, br, li, dt, dd, th, td, option {
+body, br, dt, dd, th, td, option {
   margin-top: 0;
 }
 
@@ -808,10 +799,10 @@ footer {
   padding-top: 2em;
   padding-bottom: 2em;
 }
-.flow-block.heading-block {
+.flow-block.heading-block, .flow-block.summary-block {
   padding-bottom: 0;
 }
-.heading-block + .flow-block {
+.heading-block + .flow-block, .summary-block + .flow-block {
   padding-top: 0;
 }
 .container {
@@ -939,6 +930,22 @@ there.
   background-color: white;
 }
 
+/* Spacing helpers */
+.u-mal {
+  margin: 1em;
+}
+.u-mtl {
+  margin-top: 1em;
+}
+.u-mrl {
+  margin-right: 1em;
+}
+.u-mbl {
+  margin-bottom: 1em;
+}
+.u-mll {
+  margin-left: 1em;
+}
 
 /* Misc
 –––––––––––––––––––––––––––––––––––––––––––––––––– */

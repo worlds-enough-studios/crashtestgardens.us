@@ -8,7 +8,11 @@
       <h1 itemprop="name headline">{{ this.title }}</h1>
     </div>
   </div>
-  {{ this.body | typogrify }}
+  <div class="flow-block text-block summary-block">
+    <div class="container">
+    {{ this.summary }}
+    </div>
+  </div>  {{ this.body | typogrify }}
   {% if this.enable_comments %}
   <div id="comments" class="flow-block comments-block">
     <div class="container">
