@@ -49,6 +49,12 @@ heading: Learn the Secrets of Pruning
 ----
 text: The sharpest tool in the shed is the knowledge you carry in your head. Sharpen *your* mind with my free email pruning course.
 ----
+extra_html:
+
+      <div style="position: absolute; left: -5000px;" aria-hidden="true">
+        <input type="checkbox" value="1" name="group[14913][1]" id="mce-group[14913]-14913-0" checked><label for="mce-group[14913]-14913-0">Pruning</label>
+      </div>
+----
 class: bg-green-1
 ---
 enable_comments: no
