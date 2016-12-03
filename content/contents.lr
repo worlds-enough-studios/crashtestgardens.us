@@ -55,6 +55,8 @@ extra_html:
         <input type="checkbox" value="1" name="group[14913][1]" id="mce-group[14913]-14913-0" checked><label for="mce-group[14913]-14913-0">Pruning</label>
       </div>
 ----
+button_text: Send Me Hard-Knock Lessons on Pruning!
+----
 class: bg-green-1
 ---
 enable_comments: no
