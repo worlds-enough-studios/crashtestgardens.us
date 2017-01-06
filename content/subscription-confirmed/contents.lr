@@ -5,7 +5,11 @@ title: Subscription confirmed!
 body:
 
 #### text ####
-text: Your subscription to the Crash Test Gardens Newsletter is now active! You can look forward to lots of hard-knock lessons from over here at the Crash Test Gardens, delivered regularly. But not *too* regularly!
+text:
+
+Your subscription to the Crash Test Gardens Newsletter is now active! You can look forward to lots of hard-knock lessons from over here at the Crash Test Gardens, delivered regularly. But not *too* regularly!
+
+**Check your email! Your first lesson should be there.**
 ----
 class: 
 ---
@@ -18,3 +22,5 @@ _discoverable: no
 _hidden: no
 ---
 published: yes
+---
+events: Signed Up

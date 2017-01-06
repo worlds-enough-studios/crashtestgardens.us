@@ -4,6 +4,12 @@ analytics.load("bOeF2sv6m6eqUrWmLteTtKwxJDMvHIXg");
 analytics.page()
 }})();
 
+if ((window.analytics) && window.tracking_events) {
+  window.tracking_events.forEach(function (event) {
+    window.analytics.track(event);
+  });
+}
+
 // Exit-intent-popup: Based on https://github.com/beeker1121/exit-intent-popup
 !(function() {
   window.bioEp = {

@@ -66,3 +66,5 @@ enable_subscribe_form: yes
 summary: Gardening **is hard**, but we humans have kept gardens and grown our own food a long time now. **You can benefit from that hard-won knowledge.**
 ---
 published: yes
+---
+events: 

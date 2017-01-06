@@ -21,3 +21,15 @@
   </div>
   {% endif %}
 {% endblock %}
+
+{% block pre_foot_tags %}
+{% if this.events %}
+<script type="text/javascript">
+  window.tracking_events = [
+    {% for event in this.events %}
+    "{{ event }}"{% if not loop.last %},{% endif %}
+    {% endfor %}
+  ];
+</script>
+{%- endif -%}
+{% endblock %}

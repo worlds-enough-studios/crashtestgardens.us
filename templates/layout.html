@@ -70,7 +70,9 @@
   </div>
   {% endif %}
 
+  {% block pre_foot_tags %}{% endblock %}
   {% include 'foot-tags.html' %}
+  {% block post_foot_tags %}{% endblock %}
   </script>
 </body>
 </html>
