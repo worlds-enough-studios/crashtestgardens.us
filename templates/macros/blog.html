@@ -27,7 +27,7 @@
         </{{ htag }}>
         {% if post.summary %}
         <div class="summary" itemprop="description">
-        {{ post.summary | typogrify }}
+        {{ post.summary | typogrify | deeditorialize }}
         </div>
         {% endif %}
         <p class="meta">
@@ -51,7 +51,7 @@
       <div class="flow-block text-block" itemprop="description">
         <div class="container">
         {% if post.summary %}
-        {{ post.summary | typogrify }}
+        {{ post.summary | typogrify | deeditorialize }}
         {% else %}
         {% for blk in post.body.blocks %}
           {% if loop.first %}
@@ -66,7 +66,7 @@
         </div>
       </div>
     {% else %}
-      {{ post.body | typogrify }}
+      {{ post.body | typogrify | deeditorialize }}
     {% endif %}
   {% if not from_index %}
     {% if post.enable_comments %}

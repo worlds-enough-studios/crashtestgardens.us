@@ -10,9 +10,9 @@
   </div>
   <div class="flow-block text-block summary-block">
     <div class="container">
-    {{ this.summary }}
+    {{ this.summary | typogrify | deeditorialize }}
     </div>
-  </div>  {{ this.body | typogrify }}
+  </div>  {{ this.body | typogrify | deeditorialize }}
   {% if this.enable_comments %}
   <div id="comments" class="flow-block comments-block">
     <div class="container">
