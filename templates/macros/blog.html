@@ -25,11 +25,6 @@
           {{ post.title }}
           {%- endif -%}
         </{{ htag }}>
-        {% if post.summary %}
-        <div class="summary" itemprop="description">
-          <em>{{ post.summary | typogrify | deeditorialize }}</em>
-        </div>
-        {% endif %}
         <p class="meta">
           <em>
           Written by
