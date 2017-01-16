@@ -27,10 +27,11 @@
         </{{ htag }}>
         {% if post.summary %}
         <div class="summary" itemprop="description">
-        {{ post.summary | typogrify | deeditorialize }}
+          <em>{{ post.summary | typogrify | deeditorialize }}</em>
         </div>
         {% endif %}
         <p class="meta">
+          <em>
           Written by
           <span itemprop="author" itemscope="" itemtype="http://schema.org/Person">
           <span itemprop="name">
@@ -44,6 +45,7 @@
           {%- endif -%}
           </span></span>
           on <time itemprop="datePublished">{{ post.pub_date }}</time>
+          </em>
         </p>
       </div>
     </div>
