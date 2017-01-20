@@ -758,6 +758,9 @@ header h1 small {
   font-size: 1.2rem;
   color: #ddd;
 }
+header img {
+  max-width: 100%;
+}
 
 nav a {
   border: 1px solid #669999;
